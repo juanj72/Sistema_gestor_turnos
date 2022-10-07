@@ -414,10 +414,10 @@ y a <a href="https://freesound.org/people/grunz/sounds/109662/">Freesound.org</a
     }
 
     initSounds() {
-        this.sounds.background = Utils.loadSound("static/assets/New Donk City_ Daytime 8 Bit.mp3", true);
-        this.sounds.success = Utils.loadSound("static/assets/success.wav");
-        this.sounds.denied = Utils.loadSound("static/assets/denied.wav");
-        this.sounds.tap = Utils.loadSound("static/assets/tap.wav");
+        this.sounds.background = Utils.loadSound("assets/New Donk City_ Daytime 8 Bit.mp3", true);
+        this.sounds.success = Utils.loadSound("assets/success.wav");
+        this.sounds.denied = Utils.loadSound("assets/denied.wav");
+        this.sounds.tap = Utils.loadSound("assets/tap.wav");
     }
 
     initDomElements() {

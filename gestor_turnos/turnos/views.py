@@ -15,3 +15,6 @@ def turno(request):
 
 def tetris(request):
     return render(request,"tetris.html")
+
+def sesion(request):
+    return render(request,"userlog.html")
