@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Panel de usuario</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		
+		<style>
+		
+			body {
+				background: #ece6d9;
+				background: linear-gradient(to right, #ece6d9, #E3DAC9);
+			}
+			.bg {
+				background-image: url(src/img/bg.webp);
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+		</style>
+		
+	</head>
+	<body>
+	
+		<div class="container w-75 bg-primary mt-5 shadow rounded">
+			<div class="row align-items-stretch">
+				<div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+					<!-- COLUMNA DE IMAGEN -->
+				</div>
+				<div class="col bg-white p-5 rounded-end">
+				
+					<h2 class="fw-bold text-center mt-4 mb-3">Menú usuario</h2>
+					<div class="col">
+						<!--
+							<button class="btn btn-outline-danger w-100 my-3">
+							<div class="row align-items-center">	
+								<div class="col-12 col-md-12 text-center">
+									Solicitar turno
+								</div>
+							</div>
+						</button>
+
+						-->
+						
+					</div>
+						<small class="form-text text-muted mb-3">
+							Mientras es notificado para ser atendido, puede disfrutar de los siguientes juegos.
+						</small>
+					
+					<div class="form-group">
+						<div class="row">
+							<div class="col">
+								<button class="btn btn-outline-primary w-100 my-1">
+									<div class="row align-items-center">	
+										<div class="col-12 col-md-12 text-center" onclick="window.location='tetrix.html';">
+											Tetris
+										</div>
+										
+									</div>
+								</button>
+								
+							</div>
+							<div class="col">
+								<button class="btn btn-outline-primary w-100 my-1">
+									<div class="row align-items-center">	
+										<div class="col-12 col-md-12 text-center" onclick="window.location='#';">
+											Culebrita
+										</div>
+									</div>
+								</button>
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	</body>
+	</html> 

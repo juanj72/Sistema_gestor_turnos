@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Registro</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		
+		<style>
+		
+			body {
+				background: #ece6d9;
+				background: linear-gradient(to right, #ece6d9, #E3DAC9);
+			}
+			.bg {
+				background-image: url(src/img/bg.webp);
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+		</style>
+		
+	</head>
+	<body>
+	
+		<div class="container w-75 bg-primary mt-5 shadow rounded">
+			<div class="row align-items-stretch">
+				<div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+					<!-- COLUMNA DE IMAGEN -->
+				</div>
+				<div class="col bg-white p-5 rounded-end">
+				
+					<h2 class="fw-bold text-center mt-4 mb-3">Registro</h2>
+						<small class="form-text text-muted mb-5">
+							Ninguno de los datos proporsionados a continuación no se compartirá con nadie.
+						</small>
+					<!-- LOGIN -->
+					
+					<form action="#">
+						<div class="form-group">
+							<div class="row">
+								<div class="mb-2 col-md-6">
+									<label for="firstname" class="form-label">Nombre</label>
+									<input type="text" class="form-control" name="firstname" required>							
+								</div>
+								<div class="mb-2 col-md-6">
+									<label for="lastname" class="form-label">Apellido</label>
+									<input type="text" class="form-control" name="lastname" required>							
+								</div>
+							</div>
+						</div>
+						<div class="mb-2">
+							<label for="email" class="form-label">Correo electrónico</label>
+							<input type="email" class="form-control" name="email" required>
+							<!--<small id="emailHelp" class="form-text text-muted">
+								Nunca se compartirá ninguna información que haya sido brindada por usted a nadie.					
+							</small>-->
+						</div>
+						
+						
+						<div class="mb-2">
+							<label for="inputPassword5">Contraseña</label>
+							<input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+							<small id="passwordHelpBlock" class="form-text text-muted">
+								Tu contraseña debe contener entre 8-20 carácteres de largo, combianar letras y números, y no contener espacios, carácteres especiales, o emojis.
+							</small>
+						</div>
+						<div class="mb-2">
+							<label for="inputPassword5">Confirmar contraseña</label>
+							<input type="repassword" class="form-control" name="confirm_password">
+						</div>
+						
+						<div class="mb-2">
+							<label for="inputcel">Número telefónico</label>
+							<input type="text" class="form-control" name="inputcel">
+						</div>
+						<div class="mb-2">
+							<label for="inputcc">Número de documento</label>
+							<input type="text" class="form-control" name="inputcc">
+						</div>
+							
+						<div class="mb-4 mt-4 form-check">
+							<input type="checkbox" name="termsofuse" class="form-check-input" required>
+							<label for="termsofuse" class="form-check-label">Acepto terminos y condiciones.</label>
+						</div>
+						
+						<div class="d-grid">
+							<button type="submit" class="btn btn-primary w-100">Registrarse</button>
+						</div>
+						
+						<div class="my-3">
+							<span>Ya tienes una cuenta? <a href="index.html">Iniciar sesión</a></span><br>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	</body>
+	</html> 
