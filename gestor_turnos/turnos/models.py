@@ -26,7 +26,7 @@ class User (models.Model):
     id_turno_tur = models.ForeignKey(Turno,on_delete=models.CASCADE)
     cedula = models.IntegerField(max_length=25,null=False,blank=False) 
     correo = models.CharField(max_length=50,null=False,blank=False)
-    telefono = models.CharField(max_lenfth=10,null=False,blank=False)
+    telefono = models.CharField(max_length=10,null=False,blank=False)
     prioritario = models.IntegerField(max_length=5,null=False,blank=False)
     tipo_atencion = models.IntegerField(max_length=5,null=False,blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
