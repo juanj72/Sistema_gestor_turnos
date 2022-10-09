@@ -16,7 +16,7 @@ class Caja (models.Model):
 
 class Turno (models.Model):
     id_caja_ca= models.ForeignKey(Caja,on_delete=models.CASCADE)
-    numturno = models.AutoField(max_length=25,null=False,blank=False)
+    numturno = models.IntegerField(max_length=25,null=False,blank=False)
     hora_solicitud = models.TimeField(null=False,blank=False)
     estado_tur = models.IntegerField(max_length=5,null=False,blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
