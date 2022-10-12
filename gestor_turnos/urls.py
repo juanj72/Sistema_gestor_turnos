@@ -21,7 +21,7 @@ from turnos import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("turnos.urls")),
-    path('/tetris',views.tetris,name="tetris"),
+    path('tetris',views.tetris,name="tetris"),
    
     
 ]
