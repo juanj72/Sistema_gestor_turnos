@@ -9,12 +9,14 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR,'static'),
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-x4g068a7*p+(97y0esbsf+3erv$x8s%@s#r4t$$9!#2t*ie1dk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gestorturnos.azurewebsites.net']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
