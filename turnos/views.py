@@ -12,11 +12,33 @@ def inicio(request):
     return render(request,"index.html")
 
 def registro(request):
-    formulario=Formulariopersonal
+    messa=None
+    successs=None
+    try:
+     formulario_turno=formularioturno()
+     formulario=formulariouser(request.POST or None)
+     
+     if request.method=='POST':
+        if formulario.is_valid:
+        
+          formulario.save()
+          successs=True
+          
+              
+     return render(request,"registro.html",{"formulario":formulario,"successs":successs,"turno":formulario_turno})
+
+    except:
+        messa=True
+        
+
+
+        return render(request,"registro.html",{"formulario":formulario,"error":messa})
+
+
+      
     
 
-    return render(request,"registro.html",{"formulario":formulario})
-
+    
 def turno(request):
     return render(request,"user.html")
 
