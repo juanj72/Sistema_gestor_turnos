@@ -100,6 +100,7 @@ DATABASES = {
         'NAME': 'gestor_turnos',
         'USER':'electiva2db',
         'PASSWORD':'Azure2022A*',
+        'HOST':'servidorelectiva2jara.mysql.database.azure.com',
         'PORT':'3306'
     }
 }
