@@ -33,6 +33,8 @@ ALLOWED_HOSTS = ['prueba61.azurewebsites.net']
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
+CSRF_TRUSTED_ORIGINS = ['https://inpecgestorintento57.azurewebsites.net']
+
 
 
 # Application definition
@@ -119,6 +121,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+
 
 
 # Internationalization
