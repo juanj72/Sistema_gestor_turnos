@@ -35,6 +35,11 @@ def registro(request):
         return render(request,"registro.html",{"formulario":formulario,"error":messa})
 
 
+def turno_regis(request):
+    turno=formularioturno()
+    return render (request,"turno.html",{"turno":turno})
+
+
       
     
 

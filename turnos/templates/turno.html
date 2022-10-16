@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {%load static%}
+{%load crispy_forms_tags%}
 	<html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -50,35 +51,14 @@
 						</small>
 					
 					<div class="form-group">
-						<div class="row">
-							<div class="col">
-								<button class="btn btn-outline-primary w-100 my-1">
-									<div class="row align-items-center">	
-										<!--<div class="col-12 col-md-12 text-center" onclick="window.location='{% url 'tetris' %}'">
-											Tetris
-										</div>
-									--> <a href="{%url 'tetris'%}" target="_blank" class="btn btn-dark">Tetris</a>
-									</div>
-								</button>
-								
-								
-							</div>
-							<div class="col">
-								<button class="btn btn-outline-primary w-100 my-1">
-									<div class="row align-items-center">	
-										<div class="col-12 col-md-12 text-center" onclick="window.location='#';">
-											Culebrita
-										</div>
-									</div>
-								</button>
-							</div>
-						</div>
-					</div>
-					
-					
-				</div>
-			</div>
-		</div>
+                        <form action="">
+
+                            {{turno | crispy}}
+
+							<button class="btn btn-success">Solicitar</button>
+                        </form>
+				
+		            </div>
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	</body>

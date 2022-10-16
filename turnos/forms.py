@@ -16,4 +16,4 @@ class formulariouser(forms.ModelForm):
 class formularioturno(forms.ModelForm):
     class Meta:
         model=Turno
-        fields='__all__'
+        fields=['id_user_tur','tipo_turno']

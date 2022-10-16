@@ -45,6 +45,12 @@ prioritarios=[
     (0,'No prioritario')
 ]
 
+tipo_turno=[
+    (1,'ventas'),
+    (2,'reclamos'),
+    (3,'asesoría')
+]
+
 
 class Personal (models.Model):
     nombre = models.CharField(max_length=100,null=False,blank=False)
@@ -60,14 +66,17 @@ class User (models.Model):
     prioritario = models.IntegerField(max_length=5,null=False,blank=False,choices=prioritarios)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.correo
 
 class Turno (models.Model):
     id_user_tur= models.ForeignKey(User,on_delete=models.CASCADE)
     numturno = models.CharField(max_length=25,null=False,blank=False)
     estado_tur = models.IntegerField(max_length=5,null=False,blank=False)
-    tipo_turno = models.IntegerField(max_length=5,null=False,blank=False)
+    tipo_turno = models.IntegerField(max_length=5,null=False,blank=False,choices=tipo_turno)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
+    
 
 class Caja (models.Model):
     numcaja = models.IntegerField(max_length=25,null=False,blank=False)
