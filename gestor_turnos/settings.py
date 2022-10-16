@@ -28,6 +28,11 @@ SECRET_KEY = 'django-insecure-x4g068a7*p+(97y0esbsf+3erv$x8s%@s#r4t$$9!#2t*ie1dk
 DEBUG = True
 
 ALLOWED_HOSTS = ['prueba61.azurewebsites.net']
+#ALLOWED_HOSTS = ['*']
+
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
+
 
 
 # Application definition
@@ -39,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'turnos'
+    'turnos',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -76,13 +82,25 @@ WSGI_APPLICATION = 'gestor_turnos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#          'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'gestor_turnos',
+#         'USER':'root',
+#         'PASSWORD':'',
+#         'PORT':'3306'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'gestor_turnos',
+        'USER':'electiva2db',
+        'PASSWORD':'Azure2022A*',
+        'PORT':'3306'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
