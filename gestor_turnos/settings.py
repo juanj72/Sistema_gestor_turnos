@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['prueba61.azurewebsites.net']
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
-CSRF_TRUSTED_ORIGINS = ['https://inpecgestorintento57.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['https://prueba61.azurewebsites.net']
 
 
 
