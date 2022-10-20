@@ -51,12 +51,25 @@
 						</small>
 					
 					<div class="form-group">
-                        <form action="">
+
+						{%if validador%}
+						<form action="" method="POST">
+							{%csrf_token%}
 
                             {{turno | crispy}}
+							
 
 							<button class="btn btn-success">Solicitar</button>
                         </form>
+						
+						{%endif%}
+                        
+						{%if mensaje%}
+							<div class="alert alert-success">
+								turno registrado con exito {{usuario}}
+							</div>
+							<a href="{% url 'turno' usuario %}" class="btn btn-primary">ir a sala de espera</a>
+							{%endif%}
 				
 		            </div>
 

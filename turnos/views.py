@@ -1,5 +1,5 @@
 from email import message
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from turnos.forms import *
@@ -22,7 +22,9 @@ def registro(request):
         if formulario.is_valid:
         
           formulario.save()
+          return redirect('registro_turno')
           successs=True
+
           
               
      return render(request,"registro.html",{"formulario":formulario,"successs":successs,"turno":formulario_turno})
@@ -36,16 +38,33 @@ def registro(request):
 
 
 def turno_regis(request):
-    turno=formularioturno()
-    return render (request,"turno.html",{"turno":turno})
+    turno=formularioturno(request.POST or None)
+    nomb=None
+    mensa=None
+    formu_val=True
+
+    
+    if request.method=='POST':
+        if turno.is_valid():
+            nomb=request.POST['id_user_tur']
+            
+            turno.save()
+            formu_val=False
+            mensa=True
+
+    return render (request,"turno.html",{"turno":turno,"mensaje":mensa,"usuario":nomb,"validador":formu_val})
 
 
       
     
 
     
-def turno(request):
-    return render(request,"user.html")
+def turno(request,id):
+
+    tur=Turno.objects.filter(id_user_tur=id)
+
+
+    return render(request,"user.html",{"turno":tur})
 
 def tetris(request):
     return render(request,"tetris.html")

@@ -51,6 +51,12 @@ tipo_turno=[
     (3,'asesoría')
 ]
 
+estado_turno=[
+    (1,'en espera'),
+    (2,'atencion'),
+    (3,'atendido'),
+]
+
 
 class Personal (models.Model):
     nombre = models.CharField(max_length=100,null=False,blank=False)
@@ -72,10 +78,11 @@ class User (models.Model):
 class Turno (models.Model):
     id_user_tur= models.ForeignKey(User,on_delete=models.CASCADE)
     numturno = models.CharField(max_length=25,null=False,blank=False)
-    estado_tur = models.IntegerField(max_length=5,null=False,blank=False)
+    estado_tur = models.IntegerField(max_length=5,null=False,blank=False,default=1,choices=estado_turno)
     tipo_turno = models.IntegerField(max_length=5,null=False,blank=False,choices=tipo_turno)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
+
     
 
 class Caja (models.Model):

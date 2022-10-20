@@ -2,6 +2,7 @@
 {%load static%}
 	<html lang="en">
 	<head>
+		<meta http-equiv="refresh" content=4 >
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Eleccion juego | sala de espera</title>
@@ -13,11 +14,18 @@
 			body {
 				background: #ece6d9;
 				background: linear-gradient(to right, #ece6d9, #E3DAC9);
+				align-items: center;
 			}
 			.bg {
 				background-image: url(src/img/bg.webp);
 				background-repeat: no-repeat;
 				background-position: center center;
+			}
+			.tabla{
+				width: 300px;
+				background-color: rgb(110, 110, 113);
+				margin-top: 5%;
+				margin-left: 10%;
 			}
 		</style>
 		
@@ -79,6 +87,62 @@
 				</div>
 			</div>
 		</div>
+
+<section class="tabla">
+
+	
+	<table class="table">
+		<thead>
+		  <tr>
+			<th scope="col">numero_turno</th>
+			
+			<th scope="col">estado</th>
+			<th scope="col">tipo de turno</th>
+			
+		  </tr>
+		</thead>
+		<tbody>
+
+			{%for turno in turno%}
+			<tr>
+				
+				<td>{{turno.id}}</td>
+				<!--<td>{{turno.id_user_tur_id}}</td>-->
+				{%if turno.estado_tur == 1%}
+				<td>en espera</td>
+				{%endif%}
+				{%if turno.estado_tur == 2%}
+				<td>Atencion</td>
+				{%endif%}
+				{%if turno.estado_tur == 3%}
+				<td>Atendido</td>
+				{%endif%}
+				{%if turno.tipo_turno == 2%}
+				<td>Reclamo</td>
+				{%endif%}
+				
+			  </tr>
+			
+			{%endfor%}
+		  
+		  
+		</tbody>
+	  </table>
+
+   {%if turno.0.estado_tur == 2 %}
+   <div class="alert alert-warning">
+	por favor pase a ventanilla, es su turno.
+   </div>
+   {%endif%}
+   {%if turno.0.estado_tur == 3 %}
+   <div class="alert alert-success">
+	su turno ha sido procesado con exito, muchas gracias por disponer de nuestros servicios.
+   </div>
+   {%endif%}
+   <a href="{% url 'inicio'%}" class="btn btn-danger">salir</a>
+</section>
+
+
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	</body>
