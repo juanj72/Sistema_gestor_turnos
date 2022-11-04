@@ -82,6 +82,7 @@ class Turno (models.Model):
     tipo_turno = models.IntegerField(max_length=5,null=False,blank=False,choices=tipo_turno)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
+    
 
     
 
