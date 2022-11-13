@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("turnos.urls")),
     path('tetris',views.tetris,name="tetris"),
-   
+    path('memoria',views.memoria,name="memoria"),
     
 ]
 urlpatterns += staticfiles_urlpatterns()

@@ -71,3 +71,6 @@ def tetris(request):
 
 def sesion(request):
     return render(request,"userlog.html")
+
+def memoria(request):
+    return render(request,"memoria.html")
