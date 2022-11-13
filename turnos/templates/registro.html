@@ -49,7 +49,7 @@
 						
 						{%if error%}
 						<div class="alert alert-danger">
-							ha ocurrido un error, comuniquese con el administrador.
+							ha ocurrido un error, comuniquese con el administrador, verifique que sus datos no coincidan con ya existentes.
 						</div>
 						{%elif successs%}
 						<div class="alert alert-success">
@@ -127,6 +127,7 @@
 							
 						-->
 						<button class="btn btn-success" type="submit">Registrar usuario</button>
+						<a href="{%url 'registro'%}" class="btn btn-primary">Refrescar</a>
 						
 					</form>
 				</div>
