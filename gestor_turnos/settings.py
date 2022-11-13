@@ -27,8 +27,8 @@ SECRET_KEY = 'django-insecure-x4g068a7*p+(97y0esbsf+3erv$x8s%@s#r4t$$9!#2t*ie1dk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['prueba61.azurewebsites.net']
-#ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['prueba61.azurewebsites.net']
+ALLOWED_HOSTS = ['*']
 
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
@@ -84,26 +84,26 @@ WSGI_APPLICATION = 'gestor_turnos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#          'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'gestor_turnos',
-#         'USER':'root',
-#         'PASSWORD':'',
-#         'PORT':'3306'
-#     }
-# }
-
 DATABASES = {
     'default': {
          'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gestor_turnos',
-        'USER':'electiva2db',
-        'PASSWORD':'Azure2022A*',
-        'HOST':'servidorelectiva2jara.mysql.database.azure.com',
+        'USER':'root',
+        'PASSWORD':'',
         'PORT':'3306'
     }
 }
+
+# DATABASES = {
+#     'default': {
+#          'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'gestor_turnos',
+#         'USER':'electiva2db',
+#         'PASSWORD':'Azure2022A*',
+#         'HOST':'servidorelectiva2jara.mysql.database.azure.com',
+#         'PORT':'3306'
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
