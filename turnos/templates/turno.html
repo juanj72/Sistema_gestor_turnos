@@ -54,6 +54,7 @@
 
 						{%if validador%}
 						<form action="" method="POST">
+							<p>{{redirecto}}</p>
 							{%csrf_token%}
 
                             {{turno | crispy}}

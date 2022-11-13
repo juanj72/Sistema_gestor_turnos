@@ -14,6 +14,7 @@ def inicio(request):
 def registro(request):
     messa=None
     successs=None
+    #prueba_pal='hola'
     try:
      formulario_turno=formularioturno()
      formulario=formulariouser(request.POST or None)
@@ -39,6 +40,7 @@ def registro(request):
 
 def turno_regis(request):
     turno=formularioturno(request.POST or None)
+    #pklu='prueba'
     nomb=None
     mensa=None
     formu_val=True
@@ -65,6 +67,11 @@ def turno(request,id):
 
 
     return render(request,"user.html",{"turno":tur})
+
+
+
+
+
 
 def tetris(request):
     return render(request,"tetris.html")
