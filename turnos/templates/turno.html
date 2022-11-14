@@ -34,44 +34,38 @@
 				
 					<h2 class="fw-bold text-center mt-4 mb-3">Registro Turno</h2>
 					<div class="col">
-						<!--
-							<button class="btn btn-outline-danger w-100 my-3">
-							<div class="row align-items-center">	
-								<div class="col-12 col-md-12 text-center">
-									Solicitar turno
-								</div>
-							</div>
-						</button>
-
-						-->
+                     
+					  
+				
 						
 					</div>
 						<small class="form-text text-muted mb-3">
-							Busque su correo previamente registrado y solicite su turno.
+							señor {{obj.correo}} solicite su tipo de turno
 						</small>
 					
 					<div class="form-group">
+                   
+						<form action="" method="post">
 
-						{%if validador%}
-						<form action="" method="POST">
-							<p>{{redirecto}}</p>
 							{%csrf_token%}
+                            
 
-                            {{turno | crispy}}
-							
+							<select name="tipo_turno" class="form-select">
+								<option value="1">Ventas</option>
+								<option value="2" selected>Reclamos</option>
+								<option value="3">Asesoría</option>
+							  </select>
+								
 
-							<button class="btn btn-success">Solicitar</button>
-                        </form>
+													 
+							<button class="btn btn-primary">solicitar turno</button>
+						</form>
+
+
+
+
 						
-						{%endif%}
-                        
-						{%if mensaje%}
-							<div class="alert alert-success">
-								turno registrado con exito {{usuario}}
-							</div>
-							<a href="{% url 'turno' usuario %}" class="btn btn-primary">ir a sala de espera</a>
-							{%endif%}
-				
+					
 		            </div>
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

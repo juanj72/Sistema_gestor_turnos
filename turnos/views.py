@@ -14,7 +14,7 @@ def inicio(request):
 def registro(request):
     messa=None
     successs=None
-    #prueba_pal='hola'
+    prueba_pal='hola'
     try:
      formulario_turno=formularioturno()
      formulario=formulariouser(request.POST or None)
@@ -23,7 +23,8 @@ def registro(request):
         if formulario.is_valid:
         
           formulario.save()
-          return redirect('registro_turno')
+          prueba_pal=request.POST['correo']
+          return redirect('registro_turno',prueba_pal)
           successs=True
 
           
@@ -38,23 +39,30 @@ def registro(request):
         return render(request,"registro.html",{"formulario":formulario,"error":messa})
 
 
-def turno_regis(request):
-    turno=formularioturno(request.POST or None)
-    #pklu='prueba'
-    nomb=None
-    mensa=None
-    formu_val=True
 
+
+def turno_regis(request,prueba):
+
+    datos_usuario=User.objects.get(correo=prueba)
     
-    if request.method=='POST':
-        if turno.is_valid():
-            nomb=request.POST['id_user_tur']
-            
-            turno.save()
-            formu_val=False
-            mensa=True
 
-    return render (request,"turno.html",{"turno":turno,"mensaje":mensa,"usuario":nomb,"validador":formu_val})
+    if request.method=='POST':
+       if request.POST.get('tipo_turno'):
+        print("hola")
+        print("\n",request.POST['tipo_turno'])
+        turno=Turno(
+            id_user_tur=datos_usuario,
+            tipo_turno=request.POST['tipo_turno']
+
+        )
+        turno.save()
+        return redirect('turno',datos_usuario.id)
+        
+    
+
+   
+    
+    return render (request,"turno.html",{"obj":datos_usuario})
 
 
       
