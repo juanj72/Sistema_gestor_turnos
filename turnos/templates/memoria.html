@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-
+{%load static%}
+    <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memorama</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
@@ -96,6 +97,57 @@
             }
         }
     </style>
+    <script>
+    </thead>
+    <tbody>
+
+        {%for turno in turno%}
+        <tr>
+            
+            <td>{{turno.id}}</td>
+            <!--<td>{{turno.id_user_tur_id}}</td>-->
+            {%if turno.estado_tur == 1%}
+            <td>en espera</td>
+            {%endif%}
+            {%if turno.estado_tur == 2%}
+            <td>Atencion</td>
+            {%endif%}
+            {%if turno.estado_tur == 3%}
+            <td>Atendido</td>
+            {%endif%}
+            {%if turno.tipo_turno == 2%}
+            <td>Reclamo</td>
+            {%endif%}
+            
+          </tr>
+        
+        {%endfor%}
+      
+      
+    </tbody>
+  </table>
+
+        function ConfirmDemo() {
+
+            {%if turno.0.estado_tur == 2 %}
+            var mensaje = confirm("por favor pase a ventanilla, es su turno.");
+            {%endif%}
+            {%if turno.0.estado_tur == 3 %}
+            var mensaje = confirm("su turno ha sido procesado con exito, muchas gracias por disponer de nuestros servicios.");
+            {%endif%}
+            
+            if (mensaje) {
+            alert("¡Gracias por confirmar!");
+            }
+            //Verificamos si el usuario denegó el mensaje
+            else {
+            alert("¡Haz denegado el mensaje!");
+            }
+            
+        }
+
+        
+    </script>
 
     <!-- HTML -->
     <!-- estructura visual -->
@@ -191,6 +243,11 @@
 
     </script>
 
+</body>
+<body>
+
+    <input type="button" onclick="ConfirmDemo();" value="Confirmar"/>
+    
 </body>
 
 </html>
