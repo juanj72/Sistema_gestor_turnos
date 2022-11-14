@@ -66,8 +66,8 @@ class Personal (models.Model):
 
 
 class User (models.Model):
-    cedula = models.IntegerField(max_length=25,null=False,blank=False) 
-    correo = models.CharField(max_length=50,null=False,blank=False)
+    cedula = models.IntegerField(max_length=25,null=False,blank=False,unique=True) 
+    correo = models.CharField(max_length=50,null=False,blank=False,unique=True)
     telefono = models.CharField(max_length=10,null=False,blank=False)
     prioritario = models.IntegerField(max_length=5,null=False,blank=False,choices=prioritarios)
     created_at = models.DateTimeField(auto_now_add=True)
