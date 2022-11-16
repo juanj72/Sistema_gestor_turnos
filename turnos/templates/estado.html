@@ -1,0 +1,87 @@
+
+		
+        
+        
+        <section class="tabla">
+         <!--
+            <style>
+
+
+            .tabla{
+				width: 300px;
+				background-color: rgb(110, 110, 113);
+				margin-top: 5%;
+				margin-left: 10%;
+			}
+
+
+
+            </style>
+            -->
+
+            
+
+
+
+
+
+			<!--
+                <table class="table" id="tabla_act">
+				<thead>
+				  <tr>
+					<th scope="col">numero_turno</th>
+					
+					<th scope="col">estado</th>
+					<th scope="col">tipo de turno</th>
+					
+				  </tr>
+				</thead>
+				<tbody>
+		
+					{%for turno in turno%}
+					<tr>
+						
+						<td>{{turno.id}}</td>
+						
+						{%if turno.estado_tur == 1%}
+						<td>en espera</td>
+						{%endif%}
+						{%if turno.estado_tur == 2%}
+						<td>Atencion</td>
+						{%endif%}
+						{%if turno.estado_tur == 3%}
+						<td>Atendido</td>
+						{%endif%}
+						{%if turno.tipo_turno == 2%}
+						<td>Reclamo</td>
+						{%endif%}
+						
+					  </tr>
+					
+					{%endfor%}
+				  
+				  
+				</tbody>
+			  </table>
+
+                
+            -->
+			
+		
+		   {%if turno.0.estado_tur == 2 %}
+		   <div class="alert alert-success">
+			por favor pase a ventanilla, es su turno.
+            <script>
+                alert('por favor pase a ventanilla es su turno')
+            </script>
+		   </div>
+		   {%endif%}
+		   {%if turno.0.estado_tur == 3 %}
+		   <div class="alert alert-warning">
+			su turno ha sido procesado con exito, muchas gracias por disponer de nuestros servicios.
+            <a href="{% url 'inicio'%}" class="btn btn-danger">salir</a>
+		   </div>
+		   {%endif%}
+		   
+		</section>
+		
