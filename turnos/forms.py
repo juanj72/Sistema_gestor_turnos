@@ -36,12 +36,28 @@ class formulariouser(forms.ModelForm):
     
     
 
-    # def clean_cedula(self):
-    #   cedula=self.cleaned_data.get('cedula')
-    # #     # if User.objects.filter(cedula=cedula) | len(cedula)>10 :
-    # #     #     raise 'la cedula es mayor a 10 digitos'
-    #   if  len(cedula)<=0:
+    def clean_cedula(self):
+        cedula=self.cleaned_data.get('cedula')
+    #     # if User.objects.filter(cedula=cedula) | len(cedula)>10 :
+    #     #     raise 'la cedula es mayor a 10 digitos'
+    #   if  len(str(cedula))<=4 | len(str(cedula)>10):
     #      raise forms.ValidationError(u'el numero digitado no puede ser negativo.')
+        print(type(cedula))
+        print(type(len(str(cedula))))
+        if cedula >= 1:
+            print('hola')
+            if  len(str(cedula))<=4 or len(str(cedula))>10:
+                print('hola')
+                raise forms.ValidationError(u'el numero debe tener minimo 4 caracteres y maximo 10')
+                
+            
+        else:
+            raise forms.ValidationError(u'el numero digitado no puede ser negativo.')
+            
+
+    
+
+      
 
 
 

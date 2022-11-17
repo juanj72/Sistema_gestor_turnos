@@ -64,11 +64,11 @@ estado_turno=[
     
 
 
-# def validador_cedula(value):
-#     if len(value)<4 | len(value)>10:
-#         raise ValidationError('el dato ingresado tiene que estar en un rago de 4 a 10 caracteres')
-#     if int(value)<=0 :
-#         raise ValidationError('ingrese un criterio valido, mayor que cero')
+def validador_cedula(value):
+    if len(value)<4 | len(value)>10:
+        raise ValidationError('el dato ingresado tiene que estar en un rago de 4 a 10 caracteres')
+    if int(value)<=0 :
+        raise ValidationError('ingrese un criterio valido, mayor que cero')
 
 
 
@@ -83,9 +83,9 @@ class Personal (models.Model):
 
 class User (models.Model):
 
-    def validate_numero(value):
-     if len(value)<10 | len(value)>10:
-         raise ValidationError(('%(value)s solo puede tener al menos 10 caracteres'),params={'value':value})
+    # def validate_numero(value):
+    #  if len(str(value))<10 | len(value)>10:
+    #      raise ValidationError(('%(value)s solo puede tener al menos 10 caracteres'),params={'value':value})
         
     #  if value<0:
     #      raise ValidationError(('%(value)s el numero tiene que ser mayor a 0'),params={'value':value})
