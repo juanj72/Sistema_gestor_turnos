@@ -2,9 +2,16 @@
 {%load static%}
     <html lang="en">
 <head>
+    <!-- <meta http-equiv="refresh" content=4 > -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Eleccion juego | sala de espera</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="icon" href="{% static 'img/logo.png'%}">
     <title>Memorama</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -97,57 +104,7 @@
             }
         }
     </style>
-    <script>
-    </thead>
-    <tbody>
-
-        {%for turno in turno%}
-        <tr>
-            
-            <td>{{turno.id}}</td>
-            <!--<td>{{turno.id_user_tur_id}}</td>-->
-            {%if turno.estado_tur == 1%}
-            <td>en espera</td>
-            {%endif%}
-            {%if turno.estado_tur == 2%}
-            <td>Atencion</td>
-            {%endif%}
-            {%if turno.estado_tur == 3%}
-            <td>Atendido</td>
-            {%endif%}
-            {%if turno.tipo_turno == 2%}
-            <td>Reclamo</td>
-            {%endif%}
-            
-          </tr>
-        
-        {%endfor%}
-      
-      
-    </tbody>
-  </table>
-
-        function ConfirmDemo() {
-
-            {%if turno.0.estado_tur == 2 %}
-            var mensaje = confirm("por favor pase a ventanilla, es su turno.");
-            {%endif%}
-            {%if turno.0.estado_tur == 3 %}
-            var mensaje = confirm("su turno ha sido procesado con exito, muchas gracias por disponer de nuestros servicios.");
-            {%endif%}
-            
-            if (mensaje) {
-            alert("¡Gracias por confirmar!");
-            }
-            //Verificamos si el usuario denegó el mensaje
-            else {
-            alert("¡Haz denegado el mensaje!");
-            }
-            
-        }
-
-        
-    </script>
+   
 
     <!-- HTML -->
     <!-- estructura visual -->
@@ -244,10 +201,78 @@
     </script>
 
 </body>
-<body>
+<body2>
 
-    <input type="button" onclick="ConfirmDemo();" value="Confirmar"/>
+    <div id="feedback-bg-info">
+        <section class="tabla">
+
+	
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">numero_turno</th>
+                    
+                    <th scope="col">estado</th>
+                    <th scope="col">tipo de turno</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+        
+                    {%for turno in turno%}
+                    <tr>
+                        
+                        <td>{{turno.id}}</td>
+                        <!--<td>{{turno.id_user_tur_id}}</td>-->
+                        {%if turno.estado_tur == 1%}
+                        <td>en espera</td>
+                        {%endif%}
+                        {%if turno.estado_tur == 2%}
+                        <td>Atencion</td>
+                        {%endif%}
+                        {%if turno.estado_tur == 3%}
+                        <td>Atendido</td>
+                        {%endif%}
+                        {%if turno.tipo_turno == 2%}
+                        <td>Reclamo</td>
+                        {%endif%}
+                        
+                      </tr>
+                    
+                    {%endfor%}
+                  
+                  
+                </tbody>
+              </table>
+        
+           {%if turno.0.estado_tur == 2 %}
+           <div class="alert alert-warning">
+            por favor pase a ventanilla, es su turno.
+           </div>
+           {%endif%}
+           {%if turno.0.estado_tur == 3 %}
+           <div class="alert alert-success">
+            su turno ha sido procesado con exito, muchas gracias por disponer de nuestros servicios.
+           </div>
+           {%endif%}
+           <a href="{% url 'inicio'%}" class="btn btn-danger">salir</a>
+        </section>
+        
     
-</body>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+              var refreshId =  setInterval( function(){
+            $('#feedback-bg-info').load('index.php');//actualizas el div
+           }, 1000 );
+        });
+        
+        
+    </script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bloque.js' %}"></script>
+</body2>
 
 </html>

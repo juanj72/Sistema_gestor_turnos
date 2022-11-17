@@ -3,6 +3,7 @@
 {%load crispy_forms_tags%}
 	<html lang="en">
 	<head>
+		<script src= "https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"> </script>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>solicitud | Turno</title>
@@ -24,6 +25,18 @@
 		
 	</head>
 	<body>
+		<script>
+			$(document).ready(function() {
+				function disableBack() {
+					window.history.forward()
+				}
+				window.onload = disableBack();
+				window.onpageshow = function(e) {
+					if (e.persisted)
+						disableBack();
+				}
+			});
+		</script>
 	
 		<div class="container w-75 bg-primary mt-5 shadow rounded">
 			<div class="row align-items-stretch">
@@ -69,5 +82,7 @@
 		            </div>
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="{% static 'js/bloque.js' %}"></script>
+		
 	</body>
 	</html> 
