@@ -33,6 +33,7 @@ def registro(request):
 
     except:
         messa=True
+      
         
 
 

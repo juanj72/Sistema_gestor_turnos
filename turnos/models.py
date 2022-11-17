@@ -1,5 +1,7 @@
 from random import choices
 from django.db import models
+from django.core.exceptions import ValidationError
+
 
 # class Personal (models.Model):
 #     nombre = models.CharField(max_length=100,null=False,blank=False)
@@ -58,6 +60,20 @@ estado_turno=[
 ]
 
 
+
+    
+
+
+# def validador_cedula(value):
+#     if len(value)<4 | len(value)>10:
+#         raise ValidationError('el dato ingresado tiene que estar en un rago de 4 a 10 caracteres')
+#     if int(value)<=0 :
+#         raise ValidationError('ingrese un criterio valido, mayor que cero')
+
+
+
+
+
 class Personal (models.Model):
     nombre = models.CharField(max_length=100,null=False,blank=False)
     estado_per = models.IntegerField(max_length=5,null=False,blank=False)
@@ -66,9 +82,30 @@ class Personal (models.Model):
 
 
 class User (models.Model):
-    cedula = models.IntegerField(max_length=25,null=False,blank=False,unique=True) 
+
+    def validate_numero(value):
+     if len(value)<10 | len(value)>10:
+         raise ValidationError(('%(value)s solo puede tener al menos 10 caracteres'),params={'value':value})
+        
+    #  if value<0:
+    #      raise ValidationError(('%(value)s el numero tiene que ser mayor a 0'),params={'value':value})
+    
+
+    # def validate_cedula(value):
+    #     if len(value)<4 | len(value)>10:
+    #          raise ValidationError(('%(value)s el numero tiene que tener mas de 4 digitos y menos de 10'),params={'value':value})
+        
+    #     if int(value)<=0:
+    #         raise ValidationError(('%(value)s el numero tiene que ser mayor a 0'),params={'value':value})
+
+
+
+
+
+
+    cedula = models.IntegerField(max_length=50,null=False,blank=False,unique=True) 
     correo = models.CharField(max_length=50,null=False,blank=False,unique=True)
-    telefono = models.CharField(max_length=10,null=False,blank=False)
+    telefono = models.CharField(max_length=50,null=False,blank=False)
     prioritario = models.IntegerField(max_length=5,null=False,blank=False,choices=prioritarios)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
