@@ -23,8 +23,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("turnos.urls")),
-    path('tetris',views.tetris,name="tetris"),
-    path('memoria',views.memoria,name="memoria"),
+    path('tetris/<int:id>',views.tetris,name="tetris"),
+    path('memoria/<int:id>',views.memoria,name="memoria"),
     
 ]
 urlpatterns += staticfiles_urlpatterns()

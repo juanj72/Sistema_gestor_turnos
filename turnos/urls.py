@@ -10,7 +10,8 @@ urlpatterns = [
     path('turno/<int:id>',views.turno,name='turno'),
     
     path('log',views.sesion,name="log"),
-    path('turno_registro/<str:prueba>',views.turno_regis,name="registro_turno")
+    path('turno_registro/<str:prueba>',views.turno_regis,name="registro_turno"),
+    path('estado/<int:id>',views.estado,name='estado')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

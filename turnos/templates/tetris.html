@@ -26,6 +26,13 @@ excepto si este es un proyecto de un estudiante.
 <html lang="en">
 
 <head>
+
+    <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+    <script src="{%static 'jquery/jquery-3.6.1.min.js'%}"></script>
+
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%  static 'css/bootstrap.min.css' %}">
@@ -39,11 +46,39 @@ excepto si este es un proyecto de un estudiante.
     <title>Tetris | sala de espera</title>
 </head>
 <body>
+
+
+    <script>
+        setInterval(()=>{
+          $('#contenido').load('{% url 'estado' id_tur %}');
+        },1000)
+        
+        </script>
+
+
+
+
+
+
+
 <main>
+
+
+
+
+
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
                 <h1>turnos pepito</h1>
+
+                <div id="contenido">
+
+                </div>
+
+
+
                 <h2 id="puntaje">Presiona <kbd>P</kbd> o pulsa el botón para comenzar</h2>
             </div>
             <div class="col-12 text-center">

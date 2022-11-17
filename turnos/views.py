@@ -72,20 +72,34 @@ def turno_regis(request,prueba):
 def turno(request,id):
 
     tur=Turno.objects.filter(id_user_tur=id)
+    print(tur.get().id)
+    turno_id=tur.get().id
 
 
-    return render(request,"user.html",{"turno":tur})
+    return render(request,"user.html",{"turno":tur,"turno_id":turno_id})
+
+
+def estado(request,id):
+    tur=Turno.objects.filter(id=id)
+    numero=tur.get().id
+
+    return render(request,"estado.html",{"turno":tur})
 
 
 
+def tetris(request,id):
+    tur=Turno.objects.filter(id=id)
+    numero=tur.get().id
 
-
-
-def tetris(request):
-    return render(request,"tetris.html")
+    return render(request,"tetris.html",{"turno":tur,"id_tur":numero})
 
 def sesion(request):
     return render(request,"userlog.html")
 
-def memoria(request):
-    return render(request,"memoria.html")
+
+
+
+def memoria(request,id):
+    tur=Turno.objects.filter(id=id)
+    numero=tur.get().id
+    return render(request,"memoria.html",{"turno":tur,"id_tur":numero})

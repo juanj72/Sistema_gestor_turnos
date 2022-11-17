@@ -5,11 +5,13 @@
 		<script src= "https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"> </script>
 		<script src="static/js/bloque.js"></script>
 		<meta http-equiv="refresh" content=4 >
+	
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Eleccion juego | sala de espera</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		<link rel="icon" href="{% static 'img/logo.png'%}">
+		
 		
 		<style>
 		
@@ -30,11 +32,27 @@
 				margin-left: 10%;
 			}
 		</style>
-		
+
+
 	</head>
 	<body>
+<<<<<<< HEAD
   
 		<body onload="nobackbutton();" >
+=======
+
+		
+ 
+
+
+
+
+
+
+
+
+	
+>>>>>>> 682fb9f6e1fa3a9ae7abb3d324d1f38b1a2f780f
 		<div class="container w-75 bg-primary mt-5 shadow rounded">
 			<div class="row align-items-stretch">
 				<div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
@@ -65,10 +83,7 @@
 							<div class="col">
 								<button class="btn btn-outline-primary w-100 my-1">
 									<div class="row align-items-center">	
-										<!--<div class="col-12 col-md-12 text-center" onclick="window.location='{% url 'tetris' %}'">
-											Tetris
-										</div>
-									--> <a href="{%url 'tetris'%}" target="_blank" class="btn btn-dark">Tetris</a>
+										<a href="{% url 'tetris' turno_id %}" target="_blank" class="btn btn-dark">Tetris</a>
 									</div>
 								</button>
 								
@@ -80,7 +95,7 @@
 										<!--<div class="col-12 col-md-12 text-center" onclick="window.location='#';">
 											Culebrita
 										</div>-->
-										<a href="{%url 'memoria'%}" class="btn btn-warning" target="_blank">memorama</a>
+										<a href="{%url 'memoria' turno_id %}" class="btn btn-warning" target="_blank">memorama</a>
 									</div>
 								</button>
 							</div>
@@ -92,39 +107,15 @@
 			</div>
 		</div>
 
-<section class="tabla">
+      <div>
 
-	
-	<table class="table">
-		<thead>
-		  <tr>
-			<th scope="col">numero_turno</th>
-			
-			<th scope="col">estado</th>
-			<th scope="col">tipo de turno</th>
-			
-		  </tr>
-		</thead>
-		<tbody>
 
-			{%for turno in turno%}
-			<tr>
+		<section class="tabla">
+
+			<div>
+		
 				
-				<td>{{turno.id}}</td>
-				<!--<td>{{turno.id_user_tur_id}}</td>-->
-				{%if turno.estado_tur == 1%}
-				<td>en espera</td>
-				{%endif%}
-				{%if turno.estado_tur == 2%}
-				<td>Atencion</td>
-				{%endif%}
-				{%if turno.estado_tur == 3%}
-				<td>Atendido</td>
-				{%endif%}
-				{%if turno.tipo_turno == 2%}
-				<td>Reclamo</td>
-				{%endif%}
-				
+<<<<<<< HEAD
 			  </tr>
 			
 			{%endfor%}
@@ -145,7 +136,64 @@
    {%endif%}
    <a href="{% url 'inicio'%}" class="btn btn-danger">salir</av          as>
 </section>
+=======
+			</div>
+			<table class="table" id="tabla_act">
+				<thead>
+				  <tr>
+					<th scope="col">numero_turno</th>
+					
+					<th scope="col">estado</th>
+					<th scope="col">tipo de turno</th>
+					
+				  </tr>
+				</thead>
+				<tbody>
+		
+					{%for turno in turno%}
+					<tr>
+						
+						<td>{{turno.id}}</td>
+						<!--<td>{{turno.id_user_tur_id}}</td>-->
+						{%if turno.estado_tur == 1%}
+						<td>en espera</td>
+						{%endif%}
+						{%if turno.estado_tur == 2%}
+						<td>Atencion</td>
+						{%endif%}
+						{%if turno.estado_tur == 3%}
+						<td>Atendido</td>
+						{%endif%}
+						{%if turno.tipo_turno == 2%}
+						<td>Reclamo</td>
+						{%endif%}
+						
+					  </tr>
+					
+					{%endfor%}
+				  
+				  
+				</tbody>
+			  </table>
+		
+		   {%if turno.0.estado_tur == 2 %}
+		   <div class="alert alert-warning">
+			por favor pase a ventanilla, es su turno.
+		   </div>
+		   {%endif%}
+		   {%if turno.0.estado_tur == 3 %}
+		   <div class="alert alert-success">
+			su turno ha sido procesado con exito, muchas gracias por disponer de nuestros servicios.
+		   </div>
+		   {%endif%}
+		   <a href="{% url 'inicio'%}" class="btn btn-danger">salir</a>
+		</section>
+		
 
+
+>>>>>>> 682fb9f6e1fa3a9ae7abb3d324d1f38b1a2f780f
+
+	  </div>
 
 
 
