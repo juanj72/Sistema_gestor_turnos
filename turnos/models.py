@@ -125,8 +125,8 @@ class User (models.Model):
 
     cedula = models.IntegerField(max_length=50,null=False,blank=False,unique=True,validators=[validate_cedula]) 
     correo = models.CharField(max_length=50,null=False,blank=False,unique=True,validators=[validar_correo])
-    telefono = models.CharField(max_length=50,null=False,blank=False,validators=[validador_telefono])
-    prioritario = models.IntegerField(max_length=5,null=False,blank=False,choices=prioritarios)
+    telefono = models.CharField(max_length=50,null=False,blank=False,validators=[validador_telefono],verbose_name='Teléfono')
+    prioritario = models.IntegerField(max_length=5,null=True,blank=True,choices=prioritarios,default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     def __str__(self):
