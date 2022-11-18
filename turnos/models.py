@@ -115,7 +115,7 @@ class User (models.Model):
             print("Valid Email")
  
         else:
-            raise ('direccion de correo invalida')
+            raise ('direccion de correo inválida')
 
 
 
