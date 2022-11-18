@@ -6,17 +6,14 @@ from django import forms
 from turnos.models import *
 
 
-
-
-
 class formulariouser(forms.ModelForm):
     correo = forms.EmailField()
-    cedula=forms.IntegerField()
-    telefono=forms.IntegerField()
-    
+    cedula = forms.IntegerField()
+    telefono = forms.IntegerField()
+
     class Meta:
-        model= User
-        fields='__all__'
+        model = User
+        fields = '__all__'
 
     # def clean_correo(self):
     #      correo=self.cleaned_data.get('correo')
@@ -28,26 +25,24 @@ class formulariouser(forms.ModelForm):
 
     #     if User.objects.filter(correo=correo):
     #         raise forms.ValidationError(u'correo ya existe')
-        
+
     #     # if 'ñ' | 'Ñ' in correo:
     #     #     raise forms.ValidationError(u'no pueden haber EÑES tigre')
 
     #      return correo
-    
-    
 
     # def clean_cedula(self):
-    #     cedula=self.cleaned_data.get('cedula')
-    
-    #     if cedula >= 1:
-    #         #print('hola')
-    #         if  len(str(cedula))<=4 or len(str(cedula))>10:
-    #             print('hola')
-    #             raise forms.ValidationError(u'el numero debe tener minimo 4 caracteres y maximo 10')
-                
-            
-    #     else:
-    #         raise forms.ValidationError(u'el numero digitado no puede ser negativo.')
+    #     cedula = self.cleaned_data.get('cedula')
+
+    #     if cedula <= 1:
+    #         raise forms.ValidationError(
+    #             u'el numero digitado no puede ser negativo.')
+
+    #     if len(str(cedula)) <= 4 or len(str(cedula)) > 10:
+    #             raise forms.ValidationError(
+    #                 u'el numero debe tener minimo 4 caracteres y maximo 10')
+    #     print("funcione ")
+    #     return cedula
             
 
     
