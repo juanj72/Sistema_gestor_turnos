@@ -30,20 +30,20 @@
 		<style>
 		
 			body {
-				background: #ece6d9;
-				background: linear-gradient(to right, #ece6d9, #E3DAC9);
+				background: #B3F8BE;
+				background: linear-gradient(to right, #B3F8BE, #E3DAC9);
 				align-items: center;
 			}
 			.bg {
-				background-image: url(static/img/background.jpg);
+				background-image: url(static/img/keca.jpg);
 				background-repeat: no-repeat;
 				background-position: center center;
 			}
 			.tabla{
 				width: 300px;
 				background-color: rgb(110, 110, 113);
-				margin-top: 5%;
-				margin-left: 10%;
+				margin-top: 8%;
+				margin-left: 14%;
 			}
 		</style>
 
@@ -73,7 +73,6 @@
 								</div>
 							</div>
 						</button>
-
 						-->
 						
 					</div>
@@ -86,7 +85,10 @@
 							<div class="col">
 								<button class="btn btn-outline-primary w-100 my-1">
 									<div class="row align-items-center">	
-										<a href="{% url 'tetris' turno_id %}" target="_blank" class="btn btn-dark">Tetris</a>
+										<div class="col-12 col-md-12 text-center" onclick="window.location='{% url 'tetris' turno_id %}';">
+											Tetris
+										</div>
+										{% comment %} <a href="{% url 'tetris' turno_id %}" target="_blank" class="btn btn-dark">Tetris</a> {% endcomment %}
 									</div>
 								</button>
 								
@@ -95,10 +97,10 @@
 							<div class="col">
 								<button class="btn btn-outline-primary w-100 my-1">
 									<div class="row align-items-center">	
-										<!--<div class="col-12 col-md-12 text-center" onclick="window.location='#';">
-											Culebrita
-										</div>-->
-										<a href="{%url 'memoria' turno_id %}" class="btn btn-warning" target="_blank">memorama</a>
+										<div class="col-12 col-md-12 text-center" onclick="window.location='{%url 'memoria' turno_id %}';">
+											Memorama
+										</div>
+										{% comment %} <a href="{%url 'memoria' turno_id %}" class="btn btn-warning" >Memorama</a> {% endcomment %}
 									</div>
 								</button>
 							</div>
@@ -119,16 +121,17 @@
 		
 				
 			</div>
-			<table class="table" id="tabla_act">
-				<thead>
-				  <tr>
-					<th scope="col">numero_turno</th>
-					
-					<th scope="col">estado</th>
-					<th scope="col">tipo de turno</th>
-					
-				  </tr>
-				</thead>
+			<div style="border: 1pt solid #fbb; text-align: center;">
+				<table class="table" id="tabla_act" style="margin: 0 auto;">
+					<thead>
+					<tr>
+						<th scope="col">Número de su turno</th>
+						<th scope="col">Estado de su turno</th>
+						<th scope="col">Tipo de turno</th>
+						
+					</tr>
+					</thead>
+			</div>
 				<tbody>
 		
 					{%for turno in turno%}
@@ -137,7 +140,7 @@
 						<td>{{turno.id}}</td>
 						<!--<td>{{turno.id_user_tur_id}}</td>-->
 						{%if turno.estado_tur == 1%}
-						<td>en espera</td>
+						<td>En espera</td>
 						{%endif%}
 						{%if turno.estado_tur == 2%}
 						<td>Atencion</td>
@@ -147,6 +150,12 @@
 						{%endif%}
 						{%if turno.tipo_turno == 2%}
 						<td>Reclamo</td>
+						{%endif%}
+						{%if turno.tipo_turno == 1%}
+						<td>Ventas</td>
+						{%endif%}
+						{%if turno.tipo_turno == 3%}
+						<td>Asesoría</td>
 						{%endif%}
 						
 					  </tr>
@@ -159,15 +168,15 @@
 		
 		   {%if turno.0.estado_tur == 2 %}
 		   <div class="alert alert-warning">
-			por favor pase a ventanilla, es su turno.
+			Por favor pase a ventanilla, es su turno.
 		   </div>
 		   {%endif%}
 		   {%if turno.0.estado_tur == 3 %}
 		   <div class="alert alert-success">
-			su turno ha sido procesado con exito, muchas gracias por disponer de nuestros servicios.
+			Su turno ha sido procesado con éxito, muchas gracias por disponer de nuestros servicios.
 		   </div>
 		   {%endif%}
-		   <a href="{% url 'inicio'%}" class="btn btn-danger">salir</a>
+		   <a href="{% url 'inicio'%}" class="btn btn-danger">Salir</a>
 		</section>
 		
 

@@ -605,8 +605,4 @@ Swal.fire("Bienvenido", `Port casi perfecto del juego de Tetris en JavaScript.
 <li class="list-group-item"> <kbd>Flechas de dirección</kbd><br>Mover figura hacia esa dirección</li>
 <li class="list-group-item"><strong>También puedes usar los botones si estás en móvil</strong></li>
 </ul>
-<strong>Creado por <a href="https://parzibyte.me/blog">Parzibyte</a></strong>
-<br>
-Gracias a <a target="_blank" href="https://www.youtube.com/channel/UCz6zvgkf6eKpgqlUZQstOtQ">Bulby</a> por la música de fondo
-y a <a href="https://freesound.org/people/grunz/sounds/109662/">Freesound.org</a> por el sonido al completar una línea
 `);

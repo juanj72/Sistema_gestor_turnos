@@ -6,7 +6,7 @@
 		<script src= "https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"> </script>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>solicitud | Turno</title>
+		<title>Solicitud | Turno</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		<link rel="icon" href="{% static 'img/logo.png'%}">
 
@@ -15,11 +15,11 @@
 		<style>
 		
 			body {
-				background: #ece6d9;
-				background: linear-gradient(to right, #ece6d9, #E3DAC9);
+				background: #B3F8BE;
+				background: linear-gradient(to right, #B3F8BE, #E3DAC9);
 			}
 			.bg {
-				background-image: url(static/img/turnos_regis.jpg);
+				background-image: url(static/img/keca.jpg);
 				background-repeat: no-repeat;
 				background-position: center center;
 			}
@@ -55,7 +55,7 @@
 						
 					</div>
 						<small class="form-text text-muted mb-3">
-							señor {{obj.correo}} solicite su tipo de turno
+							Señor {{obj.correo}}: solicite su tipo de turno.
 						</small>
 					
 					<div class="form-group">
@@ -71,9 +71,11 @@
 								<option value="3">Asesoría</option>
 							  </select>
 								
-
+							  <div> 
+								<h2 class="fw-bold text-center mt-4 mb-3"></h2>
+							  </div>
 													 
-							<button class="btn btn-primary">solicitar turno</button>
+							<button class="btn btn-primary">Solicitar turno</button>
 						</form>
 
 
