@@ -9,6 +9,8 @@
 		<title>solicitud | Turno</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		<link rel="icon" href="{% static 'img/logo.png'%}">
+
+		<script src="{% static 'js/bloque.js' %}"></script>
 		
 		<style>
 		
@@ -24,8 +26,8 @@
 		</style>
 		
 	</head>
-	<body>
-		<script>
+	<body onload="nobackbutton();">
+		<!-- <script>
 			$(document).ready(function() {
 				function disableBack() {
 					window.history.forward()
@@ -36,7 +38,7 @@
 						disableBack();
 				}
 			});
-		</script>
+		</script> -->
 	
 		<div class="container w-75 bg-primary mt-5 shadow rounded">
 			<div class="row align-items-stretch">
