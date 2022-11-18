@@ -1,6 +1,7 @@
 from random import choices
 from django.db import models
 from django.core.exceptions import ValidationError
+import re
 
 
 # class Personal (models.Model):
@@ -64,11 +65,8 @@ estado_turno=[
     
 
 
-def validador_cedula(value):
-    if len(value)<4 | len(value)>10:
-        raise ValidationError('el dato ingresado tiene que estar en un rago de 4 a 10 caracteres')
-    if int(value)<=0 :
-        raise ValidationError('ingrese un criterio valido, mayor que cero')
+
+
 
 
 
@@ -91,21 +89,37 @@ class User (models.Model):
     #      raise ValidationError(('%(value)s el numero tiene que ser mayor a 0'),params={'value':value})
     
 
-    # def validate_cedula(value):
-    #     if len(value)<4 | len(value)>10:
-    #          raise ValidationError(('%(value)s el numero tiene que tener mas de 4 digitos y menos de 10'),params={'value':value})
+    def validate_cedula(value):
+        print(type(value))
+        if len(str(value))<4 or len(str(value))>10:
+             raise ValidationError(('%(value)s el numero tiene que tener mas de 4 digitos y menos de 10'),params={'value':value})
         
-    #     if int(value)<=0:
-    #         raise ValidationError(('%(value)s el numero tiene que ser mayor a 0'),params={'value':value})
+        if value<=0:
+            print("hola")
+            raise ValidationError(('%(value)s el numero tiene que ser mayor a 0'),params={'value':value})
+
+    
+    def validador_telefono(value):
+        if int(value)<=0:
+            raise ValidationError('por favor ingrese numeros mayores y diferetens a cero')
+        if len(value)<10 or len(value)>10:
+            raise ValidationError('el numero de telefono solo puede tener 10 digitos')
+
+        if 'e' in str(value) or 'E' in str(value):
+            raise ValidationError('no se permiten caracteres alfabeticos')
+
+
+    # def validar_corre(value):
+    #   print(f"numero de validacion: {value.find('hotmail.com')}")
+    #   if value.find('campusucc.edu.co')<0 :
+    #     raise ValidationError('registre un correo electronico con dominio \'gmail.com\' o \'campusucc.edu.co\'')
 
 
 
 
-
-
-    cedula = models.IntegerField(max_length=50,null=False,blank=False,unique=True) 
+    cedula = models.IntegerField(max_length=50,null=False,blank=False,unique=True,validators=[validate_cedula]) 
     correo = models.CharField(max_length=50,null=False,blank=False,unique=True)
-    telefono = models.CharField(max_length=50,null=False,blank=False)
+    telefono = models.CharField(max_length=50,null=False,blank=False,validators=[validador_telefono])
     prioritario = models.IntegerField(max_length=5,null=False,blank=False,choices=prioritarios)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
