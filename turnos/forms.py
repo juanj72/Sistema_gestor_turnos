@@ -7,13 +7,21 @@ from turnos.models import *
 
 
 class formulariouser(forms.ModelForm):
-    correo = forms.EmailField()
-    cedula = forms.IntegerField()
-    telefono = forms.IntegerField()
+    correo = forms.EmailField(label='Correo electrónico',widget=forms.TextInput(attrs={"placeholder":'ingrese un correo electrónico \'gmail\' o \'hotmail\''}))
+    cedula = forms.IntegerField(label='Cédula',widget=forms.TextInput(attrs={"placeholder":'ingrese su número de documento'}))
+    telefono = forms.IntegerField(label='Teléfono',widget=forms.TextInput(attrs={"placeholder":'ingrese su numero de teléfono'}))    
 
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ('cedula','correo','telefono')
+       
+        
+
+    def clean_correo(self):
+        correo=self.cleaned_data['correo']
+        if correo.split('@')[1] not in ['gmail.com','hotmail.com']:
+            raise forms.ValidationError('ingrese un email valido, por favor, (\"gmail.com\",\"campusucc.edu.co\")')
+        return correo
 
   
             
