@@ -130,7 +130,7 @@ class User (models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     def __str__(self):
-        return self.correo
+        return str(self.correo)
 
 class Turno (models.Model):
     id_user_tur= models.ForeignKey(User,on_delete=models.CASCADE)
@@ -145,7 +145,7 @@ class Turno (models.Model):
         if self.estado_tur==2:
             return 'En ventanilla'
         if self.estado_tur==3:
-            return 'Atendido'
+            return f'Atendido: {self.id_user_tur}'
         
 
     
