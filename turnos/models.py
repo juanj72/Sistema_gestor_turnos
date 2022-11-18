@@ -133,7 +133,14 @@ class Turno (models.Model):
     tipo_turno = models.IntegerField(max_length=5,null=False,blank=False,choices=tipo_turno)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    
+    def __str__(self):
+        if self.estado_tur==1:
+            return 'En espera'
+        if self.estado_tur==2:
+            return 'En ventanilla'
+        if self.estado_tur==3:
+            return 'Atendido'
+        
 
     
 
