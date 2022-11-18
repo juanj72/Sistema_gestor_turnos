@@ -44,20 +44,20 @@ import re
 
 
 prioritarios=[
-    (1,'prioritario'),
+    (1,'Prioritario'),
     (0,'No prioritario')
 ]
 
 tipo_turno=[
-    (1,'ventas'),
-    (2,'reclamos'),
-    (3,'asesoría')
+    (1,'Ventas'),
+    (2,'Reclamos'),
+    (3,'Asesoría')
 ]
 
 estado_turno=[
-    (1,'en espera'),
-    (2,'atencion'),
-    (3,'atendido'),
+    (1,'En espera'),
+    (2,'Atención'),
+    (3,'Atendido'),
 ]
 
 
@@ -92,21 +92,21 @@ class User (models.Model):
     def validate_cedula(value):
         print(type(value))
         if len(str(value))<4 or len(str(value))>10:
-             raise ValidationError(('%(value)s el numero tiene que tener mas de 4 digitos y menos de 10'),params={'value':value})
+             raise ValidationError(('%(value)s El número tiene que tener más de 4 digitos y menos de 10'),params={'value':value})
         
         if value<=0:
             print("hola")
-            raise ValidationError(('%(value)s el numero tiene que ser mayor a 0'),params={'value':value})
+            raise ValidationError(('%(value)s El número tiene que ser mayor a 0'),params={'value':value})
 
     
     def validador_telefono(value):
         if int(value)<=0:
-            raise ValidationError('por favor ingrese numeros mayores y diferetens a cero')
+            raise ValidationError('Por favor números mayores y diferentes a cero')
         if len(value)<10 or len(value)>10:
-            raise ValidationError('el numero de telefono solo puede tener 10 digitos')
+            raise ValidationError('El número de teléfono solo puede tener 10 dígitos')
 
         if 'e' in str(value) or 'E' in str(value):
-            raise ValidationError('no se permiten caracteres alfabeticos')
+            raise ValidationError('No se permiten caracteres alfabéticos')
 
 
     # def validar_corre(value):
