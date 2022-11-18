@@ -20,10 +20,12 @@ def registro(request):
      formulario=formulariouser(request.POST or None)
      
      if request.method=='POST':
+        print(request.POST['cedula'])
         if formulario.is_valid:
         
           formulario.save()
           prueba_pal=request.POST['correo']
+          print(request.POST['cedula'])
           return redirect('registro_turno',prueba_pal)
           successs=True
 
