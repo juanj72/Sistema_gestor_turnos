@@ -109,16 +109,22 @@ class User (models.Model):
             raise ValidationError('no se permiten caracteres alfabeticos')
 
 
-    # def validar_corre(value):
-    #   print(f"numero de validacion: {value.find('hotmail.com')}")
-    #   if value.find('campusucc.edu.co')<0 :
-    #     raise ValidationError('registre un correo electronico con dominio \'gmail.com\' o \'campusucc.edu.co\'')
+    def validar_correo(value):
+        regex=r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+        if(re.fullmatch(regex, value)):
+            print("Valid Email")
+ 
+        else:
+            raise ('direccion de correo invalida')
+
+
+
 
 
 
 
     cedula = models.IntegerField(max_length=50,null=False,blank=False,unique=True,validators=[validate_cedula]) 
-    correo = models.CharField(max_length=50,null=False,blank=False,unique=True)
+    correo = models.CharField(max_length=50,null=False,blank=False,unique=True,validators=[validar_correo])
     telefono = models.CharField(max_length=50,null=False,blank=False,validators=[validador_telefono])
     prioritario = models.IntegerField(max_length=5,null=False,blank=False,choices=prioritarios)
     created_at = models.DateTimeField(auto_now_add=True)

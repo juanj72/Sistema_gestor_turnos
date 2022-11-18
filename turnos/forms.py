@@ -15,6 +15,12 @@ class formulariouser(forms.ModelForm):
         model = User
         fields = '__all__'
 
+    def clean_correo(self):
+        correo=self.cleaned_data['correo']
+        if correo.split('@')[1] not in ['gmail.com','hotmail.com']:
+            raise forms.ValidationError('ingrese un email valido, por favor, (\"gmail.com\",\"campusucc.edu.co\")')
+        return correo
+
   
             
 
