@@ -141,11 +141,11 @@ class Turno (models.Model):
     update_at = models.DateTimeField(auto_now=True)
     def __str__(self):
         if self.estado_tur==1:
-            return 'En espera'
+            return f'EN ESPERA numero: {str(self.id)}'
         if self.estado_tur==2:
-            return 'En ventanilla'
+            return f'En ventanilla: {str(self.id)}'
         if self.estado_tur==3:
-            return f'Atendido: {self.id_user_tur}'
+            return f'Atendido: {self.id_user_tur} numero: {str(self.id)}'
         
 
     
