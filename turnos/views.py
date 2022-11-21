@@ -49,17 +49,17 @@ def turno_regis(request,prueba):
     datos_usuario=User.objects.get(correo=prueba)
     
 
-    if request.method=='POST':
-       if request.POST.get('tipo_turno'):
-        print("hola")
-        print("\n",request.POST['tipo_turno'])
-        turno=Turno(
-            id_user_tur=datos_usuario,
-            tipo_turno=request.POST['tipo_turno']
+    # if request.method=='POST':
+    #    if request.POST.get('tipo_turno'):
+    #     print("hola")
+    #     print("\n",request.POST['tipo_turno'])
+    #     turno=Turno(
+    #         id_user_tur=datos_usuario,
+    #         tipo_turno=request.POST['tipo_turno']
 
-        )
-        turno.save()
-        return redirect('turno',datos_usuario.id)
+    #     )
+    #     turno.save()
+    #     return redirect('turno',datos_usuario.id)
         
     
 
@@ -68,7 +68,50 @@ def turno_regis(request,prueba):
     return render (request,"turno.html",{"obj":datos_usuario})
 
 
-      
+def reclamo(request,correo):
+    datos_usuario=User.objects.get(correo=correo)
+    turnos=Turno(
+        id_user_tur=datos_usuario,
+        tipo_turno=2
+
+
+    )
+    #print("hola desde turnos")
+    turnos.save()
+    return redirect('turno',datos_usuario.id)
+
+
+    
+    
+def venta(request,correo):
+    datos_usuario=User.objects.get(correo=correo)
+
+    turnos=Turno(
+        id_user_tur=datos_usuario,
+        tipo_turno=1
+
+
+    )
+    print("hola desde turnos")
+    turnos.save()
+    return redirect('turno',datos_usuario.id)
+
+
+
+def asesoria(request,correo):
+    datos_usuario=User.objects.get(correo=correo)
+
+    turnos=Turno(
+        id_user_tur=datos_usuario,
+        tipo_turno=3
+
+
+    )
+    print("hola desde turnos")
+    turnos.save()
+    return redirect('turno',datos_usuario.id)
+
+
     
 
     

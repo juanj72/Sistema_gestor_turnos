@@ -3,6 +3,7 @@
         
         
         <section class="tabla">
+			<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
          <!--
             <style>
 
@@ -72,7 +73,12 @@
 		   <div class="alert alert-success">
 			por favor pase a ventanilla, es su turno.
             <script>
-                alert('por favor pase a ventanilla es su turno')
+                // alert('por favor pase a ventanilla es su turno')
+				Swal.fire(
+					'Es su turno!',
+					'Por favor dirijase a ventanilla',
+					
+								)
             </script>
 		   </div>
 		   {%endif%}
