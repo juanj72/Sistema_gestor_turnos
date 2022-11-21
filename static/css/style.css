@@ -20,7 +20,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("fondo.jpg"); /* Imagen fondo */
+    background-image: url("static/img/fondo.jpg"); /* Imagen fondo */
     background-color: #cccccc; /* Color en caso de que no cargue la imagen */
     background-position: center; 
     background-repeat: no-repeat;

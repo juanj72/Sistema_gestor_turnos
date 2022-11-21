@@ -1,149 +1,88 @@
 <!DOCTYPE html>
 {%load static%}
 {%load crispy_forms_tags%}
+<html lang="en">
 
-	<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Registro</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-		<link rel="icon" href="{% static 'img/logo.png'%}">
-		
-		<style>
-		
-			body {
-				background: #B3F8BE;
-				background: linear-gradient(to right, #B3F8BE, #E3DAC9);
-			}
-			.bg {
-				background-image: url(static/img/background.jpg);
-				background-repeat: no-repeat;
-				background-position: center center;
-			}
-		</style>
-		
-	</head>
-	<body>
+<head>
 
+    <title>Turnos Keca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="{% static 'favicon.svg' %}">
 
-	
+    <!-- Bootstrap v5.1.3 CDNs -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Awesome Font -->
+    <script src="https://kit.fontawesome.com/32b1d0b3ca.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
 
 
 
+<style>
+	body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("static/img/fondo.jpg"); /* Imagen fondo */
+    background-color: #cccccc; /* Color en caso de que no cargue la imagen */
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
 
 
 
 
-	
-		<div class="container w-75 bg-primary mt-5 shadow rounded">
-			<div class="row align-items-stretch">
-				<div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
-					<!-- COLUMNA DE IMAGEN -->
-				</div>
-				<div class="col bg-white p-5 rounded-end">
-					<a href="{%url 'inicio'%}" class="btn btn-warning">regresar</a>
-				
-					<h2 class="fw-bold text-center mt-4 mb-3">Registro</h2>
-						<small class="form-text text-muted mb-5">
-							Ninguno de los datos proporcionados serán compartidos.
-						</small>
-					<!-- LOGIN -->
-					
-					<form  method="POST">
-						{%csrf_token%}
-						{{formulario | crispy}}
-						
-						
 
-						
-						{%if error%}
-						<div class="alert alert-danger">
-							ha ocurrido un error, comuniquese con el administrador, verifique que sus datos no coincidan con ya existentes.
-						</div>
-						{%elif successs%}
-						<div class="alert alert-success">
-							turno registrador correctamente
-						</div>
+<body>
+    <header><h1>Turnos Keca<i class='fab fa-typo3'></i></h1></header>
+    <div class="login">
 
-					
+        <h1 class="fw-bold text-center py-2">Ingresa tus datos</h1>
+        
+        
 
-						<a href="{%url 'registro_turno'%}" class="btn btn-primary">ir a turnos</a>
+		<form  method="POST">
+			{%csrf_token%}
+			{{formulario | crispy}}
+			
+			
 
-						  
-						{%endif%}
-
-						
-						
-						
-						
-						<!--
-							
-						<div class="form-group">
-							<div class="row">
-								<div class="mb-2 col-md-6">
-									<label for="firstname" class="form-label">Nombre</label>
-									<input type="text" class="form-control" name="firstname" required>							
-								</div>
-								<div class="mb-2 col-md-6">
-									<label for="lastname" class="form-label">Apellido</label>
-									<input type="text" class="form-control" name="lastname" required>							
-								</div>
-							</div>
-						</div>
-						<div class="mb-2">
-							<label for="email" class="form-label">Correo electrónico</label>
-							<input type="email" class="form-control" name="email" required>
-							<small id="emailHelp" class="form-text text-muted">
-								Nunca se compartirá ninguna información que haya sido brindada por usted a nadie.					
-							</small>
-						</div>
-						
-						
-						<div class="mb-2">
-							<label for="inputPassword5">Contraseña</label>
-							<input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-							<small id="passwordHelpBlock" class="form-text text-muted">
-								Tu contraseña debe contener entre 8-20 carácteres de largo, combianar letras y números, y no contener espacios, carácteres especiales, o emojis.
-							</small>
-						</div>
-						<div class="mb-2">
-							<label for="inputPassword5">Confirmar contraseña</label>
-							<input type="repassword" class="form-control" name="confirm_password">
-						</div>
-						
-						<div class="mb-2">
-							<label for="inputcel">Número telefónico</label>
-							<input type="text" class="form-control" name="inputcel">
-						</div>
-						<div class="mb-2">
-							<label for="inputcc">Número de documento</label>
-							<input type="text" class="form-control" name="inputcc">
-						</div>
-							
-						<div class="mb-4 mt-4 form-check">
-							<input type="checkbox" name="termsofuse" class="form-check-input" required>
-							<label for="termsofuse" class="form-check-label">Acepto terminos y condiciones.</label>
-						</div>
-						
-						<div class="d-grid">
-							<button type="submit" class="btn btn-primary w-100">Registrarse</button>
-						</div>
-						
-						<div class="my-3">
-							<span>Ya tienes una cuenta? <a href="{%url 'log'%}">Iniciar sesión</a></span><br>
-						</div>
-
-							
-						-->
-						<button class="btn btn-success" type="submit">Registrar usuario</button>
-						<a href="{%url 'registro'%}" class="btn btn-primary">Refrescar</a>
-						
-					</form>
-				</div>
+			
+			{%if error%}
+			<div class="alert alert-danger">
+				ha ocurrido un error, comuniquese con el administrador, verifique que sus datos no coincidan con ya existentes.
 			</div>
-		</div>
+			{%elif successs%}
+			<div class="alert alert-success">
+				turno registrador correctamente
+			</div>
 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	</body>
-	</html> 
+		
+
+			<a href="{%url 'registro_turno'%}" class="btn btn-primary">ir a turnos</a>
+
+			  
+			{%endif%}
+
+			
+			
+		
+			<button class="btn btn-success" type="submit">Registrar usuario</button>
+			<a href="{%url 'registro'%}" class="btn btn-primary">Refrescar</a>
+			
+		</form>
+
+    </div>
+    <footer><i class='fab fa-typo3'></i></footer>
+</body>
+
+</html>
