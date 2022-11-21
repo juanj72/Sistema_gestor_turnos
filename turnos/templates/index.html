@@ -1,95 +1,62 @@
 <!DOCTYPE html>
-{%load static%}
-	<html lang="en">
-	<head>
-		<script src= "https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"> </script>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Inicio | solicitud turno</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-		<link rel="icon" href="{% static 'img/logo.png'%}">
-		
-		<style>
-		
-			body {
-				background: #B3F8BE;
-				background: linear-gradient(to right, #B3F8BE, #E3DAC9);
-			}
-			.bg {
-				background-image: url(static/img/keca.jpg);
-				background-repeat: no-repeat;
-				background-position: center center;
-			}
-		</style>
-		
-	</head>
-	<body>
-	
-		<body>
-		
-		<div class="container w-75 bg-primary mt-5 shadow rounded">
-			<div class="row align-items-stretch">
-				<div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
-					<!-- COLUMNA DE IMAGEN -->
-				</div>
-				<div class="col bg-white p-5 rounded-end">
-				
-					<h2 class="fw-bold text-center mt-4 mb-3">Turnos Keca</h2>
+{% load static %}
+<html lang="en">
 
-					
+<head>
 
-					
+    <title>Turnos Keca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="{% static 'img/favicon.svg' %}">
+
+    <!-- Bootstrap v5.1.3 CDNs -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Awesome Font -->
+    <script src="https://kit.fontawesome.com/32b1d0b3ca.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<style>
+	body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("static/img/fondo.jpg"); /* Imagen fondo */
+    background-color: #cccccc; /* Color en caso de que no cargue la imagen */
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
 
 
+<body>
+    <header><h1>Turnos Keca<i class='fab fa-typo3'></i></h1></header>
+    <div class="selec">
 
-					<div class="col">
-						<!--
-							<button class="btn btn-outline-danger w-100 my-3">
-							<div class="row align-items-center">	
-								<div class="col-12 col-md-12 text-center">
-									Solicitar turno
-								</div>
-							</div>
-						</button>
+        <h1 class="fw-bold text-center py-2">Bienvenido</h1>
+        <p>Por favor seleccione una de las dos opciones a continuación</p>
+        <a class="btnindex btn btn-lg" id="rec" href="{% url 'registro'%}">
+            <span>Solicitar turno</span>
+        </a>
+        <a class="btnindex color2 btn btn-lg" href="#">
+            <span>Iniciar Sesión</span>
+        </a>
+    </div>
+    <footer><i class='fab fa-typo3'></i></footer>
+</body>
 
-						-->
-						
-					</div>
-						<small class="form-text text-muted mb-3">
-							Bienvenido a Turnos Keca.
-						</small>
-					
-					<div class="form-group">
-						<div class="row">
-							<div class="col">
-								<button class="btn btn-outline-primary w-100 my-1">
-									<div class="row align-items-center">	
-										<div class="col-12 col-md-12 text-center" onclick="window.location='{% url 'registro' %}'">
-											Solicitar Turno
-										</div>
-										
-									</div>
-								</button>
-								
-								
-							</div>
-							<div class="col">
-								<button class="btn btn-outline-primary w-100 my-1">
-									<div class="row align-items-center">	
-										<div class="col-12 col-md-12 text-center" onclick="window.location='https://prueba61.azurewebsites.net/admin/';">
-											iniciar sesion
-										</div>
-									</div>
-								</button>
-							</div>
-						</div>
-					</div>
-					
-					
-				</div>
-			</div>
-		</div>
 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	</body>
-	</html> 
+
+
+
+
+
+
+</html>
