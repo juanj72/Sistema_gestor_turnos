@@ -7,9 +7,9 @@ from turnos.models import *
 
 
 class formulariouser(forms.ModelForm):
-    correo = forms.EmailField(label='Correo electrónico',widget=forms.TextInput(attrs={"placeholder":'ingrese un correo electrónico \'gmail\' o \'hotmail\''}))
-    cedula = forms.IntegerField(label='Cédula',widget=forms.TextInput(attrs={"placeholder":'ingrese su número de documento'}))
-    telefono = forms.IntegerField(label='Teléfono',widget=forms.TextInput(attrs={"placeholder":'ingrese su numero de teléfono'}))    
+    correo = forms.EmailField(label='Correo electrónico',widget=forms.TextInput(attrs={"placeholder":'Ingrese un correo electrónico \'gmail\' o \'hotmail\''}))
+    cedula = forms.IntegerField(label='Cédula',widget=forms.TextInput(attrs={"placeholder":'Ingrese su número de documento'}))
+    telefono = forms.IntegerField(label='Teléfono',widget=forms.TextInput(attrs={"placeholder":'Ingrese su número de teléfono'}))    
 
     class Meta:
         model = User

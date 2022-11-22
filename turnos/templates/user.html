@@ -6,7 +6,7 @@
 
     <title>Turnos Keca</title>
 
-	<meta http-equiv="refresh" content=4 >
+	<meta http-equiv="refresh" content=3 >
 
 
 
@@ -48,6 +48,22 @@
 
         <div class="turnos"> 
             <div class="counter">
+
+
+                {%for turnos in turnos %}
+
+                {% if turnos.estado_tur == 2%}
+                  <h3>En ventanilla: {{turnos.id}}</h3>
+        
+                 {%endif%}
+                {%endfor%}
+
+
+
+
+
+
+
                 <div class="counter-icon">
                     <i class="fa-solid fa-calendar-days"></i>
                 </div>
@@ -108,6 +124,7 @@
 
                
                 <span class="counter-value">{{turno_id}}</span>
+
             </div>
         </div>
         <!--<a class="btngame btn" id="rec" href="#">

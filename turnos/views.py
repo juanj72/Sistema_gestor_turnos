@@ -118,11 +118,12 @@ def asesoria(request,correo):
 def turno(request,id):
 
     tur=Turno.objects.filter(id_user_tur=id)
+    turnos=Turno.objects.all()
     print(tur.get().id)
     turno_id=tur.get().id
 
 
-    return render(request,"user.html",{"turno":tur,"turno_id":turno_id})
+    return render(request,"user.html",{"turno":tur,"turno_id":turno_id,"turnos":turnos})
 
 
 def estado(request,id):
