@@ -1,25 +1,141 @@
 <!DOCTYPE html>
+{%load static%}
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta http-equiv="refresh" content=2 >
+
+    <title>Turnos Keca</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="{% static 'img/favicon.svg' %}">
 
-    <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <title>monitor || turnos</title>
+
+
+
+    <!-- Bootstrap v5.1.3 CDNs -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Awesome Font -->
+    <script src="https://kit.fontawesome.com/32b1d0b3ca.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
 </head>
-<body>
 
-    <table class="table table-dark">
+
+
+<style>
+	body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("static/img/fondo.jpg"); /* Imagen fondo */
+    background-color: #cccccc; /* Color en caso de que no cargue la imagen */
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tabla_tam{
+    width: 100%;
+}
+
+
+
+.login2{
+    width: 120%;
+    height: min-content;
+    padding: 50px;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-left: 0%;
+    margin-right: 10%;
+}
+
+.login{
+    width: 100%;
+    height: min-content;
+    padding: 50px;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-right: 250px;
+    margin-left: 100px;
+    
+}
+
+section{
+    display: flex;
+    
+    
+}
+
+
+.turnos {
+    text-align: center;
+    width: 100%;
+    height: min-content;
+    padding: 50px;
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin-top: 60px;
+        
+}
+span{
+    font-size: 250px;
+    color: rgb(8, 9, 9);
+
+}
+
+
+
+</style>
+
+
+
+
+
+<body>
+    <header><h1>Turnos Keca<i class='fab fa-typo3'></i></h1></header>
+    <!-- <div class="login">
+
+        <h1 class="fw-bold text-center py-2">Visualización</h1>
+
+
+
+        <style>
+            .tabla_tam{
+                width: 100%;
+            }
+
+            .login {
+            width: 80%;
+            height: min-content;
+            padding: 50px;
+            border-radius: 20px;
+            background: #ffffff;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+
+
+
+        
+    <table class="table tabla_tam">
         <thead>
           <tr>
-            <th scope="col">Numero de turno</th>
+            <th scope="col">Turno</th>
             <th scope="col">Estado</th>
             <th scope="col">Usuario</th>
-            <th scope="col">Acción</th>
+            <th scope="col">Modulo</th>
           
           </tr>
         </thead>
@@ -55,7 +171,7 @@
                 <td>Atendido</td>
                 {%endif%}
                 <td>{{turnos.correo}}</td>
-                <td><a href="#" class="btn btn-primary">Atender</a></td>
+                <td>{{turnos.tipo_turno}}</td>
               </tr>
 
             {%endfor%}
@@ -63,6 +179,169 @@
         
         </tbody>
       </table>
-    
+        
+        
+
+		
+
+    </div> -->
+
+
+    <section>
+
+
+        <div class="izquierda">
+            <div class="login2">
+                <h2>Lista de turnos</h2>
+
+
+                
+
+
+                    <table class="table tabla_tam">
+                        <thead>
+                          <tr>
+                            <th scope="col">Turno</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Modulo</th>
+                          
+                          </tr>
+                        </thead>
+                        <tbody>
+                
+                            {%for turnos in turnos_ventana %}
+                
+                            <tr>
+
+                                {%if turnos.estado_tur == 1%}
+
+                                
+                
+                                
+                                <td>{{turnos.numero_turno}}</td>
+                                
+                                <td>En espera</td>
+                                
+                                
+                                <td>{{turnos.correo}}</td>
+
+                                {%if turnos.tipo_turno == 1%}
+                                <td> Ventas </td>
+
+                                {%endif%}
+
+                                {%if turnos.tipo_turno == 2 %}
+                                <td> Reclamos </td>
+
+                                {%endif%}
+
+                                {%if turnos.tipo_turno == 3 %}
+                                <td> Asesoría </td>
+
+                                {%endif%}
+                                <!-- <td>{{turnos.tipo_turno}}</td> -->
+
+                                {%endif%}
+                              </tr>
+                
+                            {%endfor%}
+                         
+                        
+                        </tbody>
+                      </table>
+
+
+
+
+
+                   
+                
+                
+            </div>
+
+        </div>
+
+
+
+
+        <div class="derecha">
+            <div class="login">
+
+
+
+               <h2>Turno en ventanilla</h2>
+
+                <div class="turnos"> 
+                    <div class="counter">
+
+                        
+
+                        {%for turnos in turnos_ventana %}
+
+                        {% if turnos.estado_tur == 2%}
+                        <div class="counter-icon">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+
+                        
+                        {%if turnos.tipo_turno == 1%}
+                        <h3> Ventas </h3>
+
+                        {%endif%}
+
+                        {%if turnos.tipo_turno == 2 %}
+                        <h3> Reclamos </h3>
+
+                        {%endif%}
+
+                        {%if turnos.tipo_turno == 3 %}
+                        <h3> Asesoría </h3>
+
+                        {%endif%}
+                        <!-- <td>{{turnos.tipo_turno}}</td> -->
+
+                        
+        
+        
+                        
+                       
+        
+                        
+        
+        
+                      
+        
+                       
+                        <span class="counter-value">A-{{turnos.numero_turno}}</span>
+                
+                         {%endif%}
+                        {%endfor%}
+                     
+                       
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+            </div>
+
+        </div>
+        
+    </section>
+    <footer><i class='fab fa-typo3'></i></footer>
 </body>
+
 </html>
